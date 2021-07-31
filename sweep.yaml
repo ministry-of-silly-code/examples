@@ -1,0 +1,5 @@
+program: mnist_classifier.py
+method: grid
+parameters:
+  seed:
+    values: [2,3,4]
