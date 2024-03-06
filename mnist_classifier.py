@@ -53,7 +53,7 @@ init_random_params, predict = stax.serial(
 
 if __name__ == "__main__":
 
-    tensorboard = config.tensorboard
+    writer = config.writer
 
     rng = random.PRNGKey(0)
 
@@ -99,8 +99,7 @@ if __name__ == "__main__":
         params = get_params(opt_state)
         train_acc = accuracy(params, (train_images, train_labels))
         test_acc = accuracy(params, (test_images, test_labels))
-        tensorboard.add_scalar("train_acc", float(train_acc), global_step=epoch)
-        tensorboard.add_scalar("test_acc", float(test_acc), global_step=epoch)
+        writer.log({"train_acc": float(train_acc), "test_acc": float(test_acc)}, commit=True)
         print("Epoch {} in {:0.2f} sec".format(epoch, epoch_time))
         print("Training set accuracy {}".format(train_acc))
         print("Test set accuracy {}".format(test_acc))

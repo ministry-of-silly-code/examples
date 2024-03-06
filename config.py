@@ -1,9 +1,8 @@
 import math
 import os
 
-import jax.example_libraries.optimizers
-
 import experiment_buddy
+import jax.example_libraries.optimizers
 
 initial_lr = .0001
 
@@ -22,14 +21,16 @@ num_epochs = 1000
 ################################################################
 # Derivative parameters
 ################################################################
-learning_rate = jax.example_libraries.optimizers.inverse_time_decay(initial_lr, decay_steps, decay_factor, staircase=True)
+learning_rate = jax.example_libraries.optimizers.inverse_time_decay(initial_lr, decay_steps, decay_factor,
+                                                                    staircase=True)
 eval_every = math.ceil(num_epochs / 1000)
 
-# tensorboard = experiment_buddy.deploy(host=os.environ.get('BUDDY_HOST', ""), sweep_yaml=os.environ.get('SWEEP', ""))
-# tensorboard = experiment_buddy.deploy(host="milafrosty", sweep_yaml="sweep.yaml")
-# tensorboard = experiment_buddy.deploy(url="milafrosty", sweep_yaml="")
-
-experiment_buddy.deploy(url="milafrosty", disabled=False, conda_env="", extra_modules=[],
-                                 # sweep_definition="sweep.yaml",
-                                 wandb_run_name="homecredit",
-                                 wandb_kwargs={'entity': "ionelia", 'project': "homecredit"})
+writer = experiment_buddy.deploy(
+    url=os.environ.get('BUDDY_HOST', ""),
+    disabled=False,
+    conda_env="",
+    extra_modules=[],
+    sweep_definition=os.environ.get('SWEEP', ""),
+    wandb_run_name="example",
+    wandb_kwargs={'entity': "ionelia", 'project': "homecredit"}
+)
