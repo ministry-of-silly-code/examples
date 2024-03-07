@@ -14,7 +14,7 @@ batch_size = 128
 momentum_mass = 0.99
 weight_norm = 0.00
 
-num_epochs = 1000
+num_epochs = 10
 
 # experiment_buddy.register(locals())
 

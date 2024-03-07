@@ -57,7 +57,6 @@ if __name__ == "__main__":
 
     rng = random.PRNGKey(0)
 
-    num_epochs = 10
 
     train_images, train_labels, test_images, test_labels = datasets.mnist()
     num_train = train_images.shape[0]
@@ -90,7 +89,7 @@ if __name__ == "__main__":
     itercount = itertools.count()
 
     print("\nStarting training...")
-    for epoch in range(num_epochs):
+    for epoch in range(config.num_epochs):
         start_time = time.time()
         for _ in range(num_batches):
             opt_state = update(next(itercount), opt_state, next(batches))
