@@ -26,11 +26,11 @@ learning_rate = jax.example_libraries.optimizers.inverse_time_decay(initial_lr, 
 eval_every = math.ceil(num_epochs / 1000)
 
 writer = experiment_buddy.deploy(
-    url=os.environ.get('BUDDY_HOST', ""),
+    url="frosty",
     disabled=False,
-    conda_env="",
+    conda_env="py39",
     extra_modules=[],
-    sweep_definition=os.environ.get('SWEEP', ""),
+    sweep_definition="sweep.yaml",
     wandb_run_name="example",
     wandb_kwargs={'entity': "ionelia", 'project': "homecredit"}
 )
