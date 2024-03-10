@@ -16,7 +16,7 @@ weight_norm = 0.00
 
 num_epochs = 10
 
-# experiment_buddy.register(locals())
+experiment_buddy.register(locals())
 
 ################################################################
 # Derivative parameters
