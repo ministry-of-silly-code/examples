@@ -1,5 +1,10 @@
 program: mnist_classifier.py
 method: grid
+metric:
+  goal: maximize
+  name: train_acc
 parameters:
   seed:
     values: [2,3,4]
+  momentum_mass:
+    values: [0.9, 0.99]
