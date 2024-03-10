@@ -16,7 +16,7 @@ weight_norm = 0.00
 
 num_epochs = 10
 
-experiment_buddy.register(locals())
+# experiment_buddy.register(locals())
 
 ################################################################
 # Derivative parameters
@@ -30,7 +30,7 @@ writer = experiment_buddy.deploy(
     disabled=False,
     conda_env="py39",
     extra_modules=[],
-    sweep_definition="sweep.yaml",
+    # sweep_definition="sweep.yaml",
     wandb_run_name="example",
     wandb_kwargs={'entity': "ionelia", 'project': "homecredit"}
 )
