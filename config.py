@@ -26,7 +26,7 @@ learning_rate = jax.example_libraries.optimizers.inverse_time_decay(initial_lr, 
 eval_every = math.ceil(num_epochs / 1000)
 
 writer = experiment_buddy.deploy(
-    url="frosty",
+    # url="frosty",
     disabled=False,
     conda_env="py39",
     extra_modules=[],
