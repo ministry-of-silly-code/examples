@@ -15,6 +15,7 @@ momentum_mass = 0.99
 weight_norm = 0.00
 
 num_epochs = 10
+seed = 2
 
 experiment_buddy.register(locals())
 
@@ -26,11 +27,11 @@ learning_rate = jax.example_libraries.optimizers.inverse_time_decay(initial_lr, 
 eval_every = math.ceil(num_epochs / 1000)
 
 writer = experiment_buddy.deploy(
-    # url="frosty",
+    url="frosty",
     disabled=False,
     conda_env="py39",
     extra_modules=[],
-    # sweep_definition="sweep.yaml",
+    sweep_definition="sweep.yaml",
     wandb_run_name="example",
     wandb_kwargs={'entity': "ionelia", 'project': "homecredit"}
 )

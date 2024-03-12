@@ -55,7 +55,7 @@ if __name__ == "__main__":
 
     writer = config.writer
 
-    rng = random.PRNGKey(0)
+    rng = random.PRNGKey(config.seed)
 
 
     train_images, train_labels, test_images, test_labels = datasets.mnist()
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
 
     def data_stream():
-        rng = npr.RandomState(0)
+        rng = npr.RandomState(config.seed)
         while True:
             perm = rng.permutation(num_train)
             for i in range(num_batches):
