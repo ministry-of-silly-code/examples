@@ -33,5 +33,6 @@ writer = experiment_buddy.deploy(
     extra_modules=[],
     sweep_definition="sweep.yaml",
     wandb_run_name="example",
-    wandb_kwargs={'entity': "ionelia", 'project': "homecredit"}
+    wandb_kwargs={'entity': "ionelia", 'project': "homecredit"},
+    proc_num=-1
 )
